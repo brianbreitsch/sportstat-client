@@ -1,0 +1,28 @@
+{
+  "name": "sportstat",
+  "version": "0.0.0",
+  "homepage": "https://github.com/brianbreitsch/sportstat",
+  "authors": [
+    "brianbreitsch <brianbreitsch@gmail.com>"
+  ],
+  "private": true,
+  "description": "A sports statistics application",
+  "keywords": [
+    "sports",
+    "statistics"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "swipe-pages": "~0.2.0",
+    "core-toolbar": "Polymer/core-toolbar#~0.5.6",
+    "paper-icon-button": "Polymer/paper-icon-button#~0.5.6",
+    "paper-progress": "Polymer/paper-progress#~0.5.6"
+  }
+}
