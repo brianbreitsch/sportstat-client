@@ -31,8 +31,39 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     // Ensure the drawer is hidden on desktop/tablet
     var drawerPanel = document.querySelector('#paperDrawerPanel');
-    drawerPanel.forceNarrow = true;
   });
+  
+
+  // add app details TODO move somewhere that makes sense
+  app.contacts = [
+    {
+      'name': 'Brian Breitsch',
+      'email': 'brianbreitsch@gmail.com',
+      'role': 'front-end developer'
+    },
+    {
+      'name': 'Nathan Breitsch',
+      'email': 'nathanbreitsch@gmail.com',
+      'role': 'back-end developer'
+    }
+  ];
+  app.user = null;
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function() {
+      if (xmlhttp.readyState == XMLHttpRequest.DONE ) {
+        if(xmlhttp.status == 200){
+          app.user = JSON.parse(xmlhttp.responseText);
+        }
+        else if(xmlhttp.status == 400) {
+          alert('There was an error 400 while loading static info.')
+        }
+        else {
+          alert('Error: ' + xmlhttp.status)
+        }
+      }
+    };
+  xmlhttp.open("GET", "scripts/fake_user.json", true);
+  xmlhttp.send();
 
 })(document);
 
