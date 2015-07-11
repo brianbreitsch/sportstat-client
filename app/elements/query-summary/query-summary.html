@@ -1,0 +1,30 @@
+<!--
+-->
+
+<dom-module id="query-summary">
+  <style>
+    :host {
+      display: block;
+      padding: 2px 1px;
+    }
+  </style>
+  <template>
+    <div>
+      <p>{{query.name}}</p>
+      <br>
+      <p>{{query.resultCount}}</p>
+    </div>
+  </template>
+</dom-module>
+<script>
+(function() {
+  Polymer({
+    is: 'query-summary',
+    properties: {
+      query: {
+        type: Object
+      }
+    }
+  });
+  })();
+</script>

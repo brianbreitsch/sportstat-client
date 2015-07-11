@@ -10,6 +10,36 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 (function (document) {
   'use strict';
 
+  /*
+   * Standard function to call for making AJAX requests of JSON objects.
+   * e.g.
+   *   
+   *   function callbackFnc(json) {
+   *      app.object = json;
+   *   };
+   *   jsonRequest(
+   */
+  function jsonRequest(filepath, fnc) {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState == XMLHttpRequest.DONE ) {
+          if(xmlhttp.status == 200){
+            var json = JSON.parse(xmlhttp.responseText);
+            fnc(json);
+          }
+          else if(xmlhttp.status == 400) {
+            alert('There was an error 400 while loading static info.')
+          }
+        else {
+          // TODO handle errors with user warning
+          alert('Error: ' + xmlhttp.status)
+        }
+      }
+    };
+    xmlhttp.open("GET", filepath, true);
+    xmlhttp.send();
+  }
+
   // Grab a reference to our auto-binding template
   // and give it some initial binding values
   // Learn more about auto-binding templates at http://goo.gl/Dx1u2g
@@ -34,36 +64,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   });
   
 
-  // add app details TODO move somewhere that makes sense
-  app.contacts = [
-    {
-      'name': 'Brian Breitsch',
-      'email': 'brianbreitsch@gmail.com',
-      'role': 'front-end developer'
-    },
-    {
-      'name': 'Nathan Breitsch',
-      'email': 'nathanbreitsch@gmail.com',
-      'role': 'back-end developer'
-    }
-  ];
+  // load app properties
+  jsonRequest('scripts/contacts.json', function(json) {
+      app.contacts = json;
+    });
+
   app.user = null;
-  var xmlhttp = new XMLHttpRequest();
-  xmlhttp.onreadystatechange = function() {
-      if (xmlhttp.readyState == XMLHttpRequest.DONE ) {
-        if(xmlhttp.status == 200){
-          app.user = JSON.parse(xmlhttp.responseText);
-        }
-        else if(xmlhttp.status == 400) {
-          alert('There was an error 400 while loading static info.')
-        }
-        else {
-          alert('Error: ' + xmlhttp.status)
-        }
-      }
-    };
-  xmlhttp.open("GET", "scripts/fake_user.json", true);
-  xmlhttp.send();
+  jsonRequest('scripts/fake_user.json', function(json) {
+      app.user = json;
+    });
 
 })(document);
 

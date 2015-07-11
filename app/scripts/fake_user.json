@@ -4,7 +4,15 @@
     "queries": [
         {
             "name": "QBs",
-            "results": []
+            "resultCount": 1234
+        },
+        {
+            "name": "QBs with pass percentage greater than 25%",
+            "resultCount": 987
+        },
+        {
+            "name": "Teams with win/loss ratio greater than 40%",
+            "resultCount": 12
         }
     ]
 }

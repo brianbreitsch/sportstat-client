@@ -1,0 +1,42 @@
+<!--
+-->
+
+<dom-module id="contact-card">
+  <style>
+    :host {
+      display: block;
+      padding: 10px;
+    }
+    .avatar .info {
+      color: red;
+      float: left;
+      height: 128px;
+      display: inline-block;
+      overflow: hidden;
+    }
+  </style>
+  <template>
+      <div class="avatar">
+        <img src="{{person.avatar}}"></img>
+      </div>
+      <div class="info">
+        <span class="paper-font-body1">{{person.name}}</span><br>
+        <span class="paper-font-body1">{{person.role}}</span><br>
+        <span class="paper-font-body2">{{person.email}}</span>
+      </div>
+  </template>
+</dom-module>
+  <script>
+  (function() {
+    Polymer({
+      is: 'contact-card',
+
+      properties: {
+        person: {
+          type: Object,
+          notify: true
+        }
+      }
+    });
+    })();
+  </script>

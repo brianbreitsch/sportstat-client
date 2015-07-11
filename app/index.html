@@ -112,9 +112,13 @@
             <section data-route="queries">
               <paper-material elevation="1">
                 <p class="paper-font-subhead">Queries:</p>
-                
-                <template repeat="{{user.queries}}">
-                  <p>query</p>
+                <br>
+                <template is="dom-repeat" items="{{user.queries}}">
+                  <!-- query-summary  edit  delete -->
+                    <query-summary query="{{item}}"></query-summary>
+                    <span class="flex"></span>
+                    <paper-icon-button icon="edit">edit</paper-icon-button>
+                    <paper-icon-button icon="delete">delete</paper-icon-button>
                 </template>
               </paper-material>
             </section>
@@ -130,7 +134,9 @@
               <paper-material elevation="1">
                 <h2 class="paper-font-display2">Contact</h2>
                 <p>This is the contact section</p>
-                <p><a href="/contact/brian">Brian</a></p>
+                <template is="dom-repeat" items="{{contacts}}">
+                  <contact-card person="{{item}}"></contact-card>
+                </template>
               </paper-material>
             </section>
 

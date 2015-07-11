@@ -1,0 +1,14 @@
+[
+    {
+      "name": "Brian Breitsch",
+      "avatar": "images/avatar.svg",
+      "email": "brianbreitsch@gmail.com",
+      "role": "front-end developer"
+    },
+    {
+      "name": "Nathan Breitsch",
+      "avatar": "images/avatar.svg",
+      "email": "nathanbreitsch@gmail.com",
+      "role": "back-end developer"
+    }
+]
