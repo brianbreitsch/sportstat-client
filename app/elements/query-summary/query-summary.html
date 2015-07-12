@@ -5,14 +5,30 @@
   <style>
     :host {
       display: block;
-      padding: 2px 1px;
+      padding: 2px 50px 2px 2px;
+      width: 100%;
+    }
+    .info .buttons {
+      display: inline-block;
+      width: 300px;
+    }
+    .info {
+      font-size: small;
     }
   </style>
   <template>
     <div>
-      <p>{{query.name}}</p>
-      <br>
-      <p>{{query.resultCount}}</p>
+      <div class="info">Fuck<div><div class="buttons">You</div>
+      <!--
+      <div class="info">
+        <p>{{query.name}}</p>
+        <p>{{query.resultCount}}</p>
+      </div>
+      <div class="buttons">
+        <paper-icon-button icon="create">edit</paper-icon-button>
+        <paper-icon-button icon="delete">delete</paper-icon-button>
+      </div>
+      -->
     </div>
   </template>
 </dom-module>
